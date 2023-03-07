@@ -12,9 +12,10 @@
 		D21FF93329B67E22001FEA52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21FF93129B67E22001FEA52 /* Main.storyboard */; };
 		D21FF93529B67E22001FEA52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D21FF93429B67E22001FEA52 /* Assets.xcassets */; };
 		D21FF93829B67E22001FEA52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21FF93629B67E22001FEA52 /* LaunchScreen.storyboard */; };
-		D21FF94129B67ED6001FEA52 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF94029B67ED6001FEA52 /* Model.swift */; };
+		D21FF94129B67ED6001FEA52 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF94029B67ED6001FEA52 /* Contact.swift */; };
 		D21FF94329B67F88001FEA52 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF94229B67F88001FEA52 /* TableViewController.swift */; };
 		D21FF94629B68F67001FEA52 /* AddContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FF94529B68F67001FEA52 /* AddContactTableViewController.swift */; };
+		D22489F129B6A80C006FFE78 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22489F029B6A80C006FFE78 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +26,10 @@
 		D21FF93429B67E22001FEA52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D21FF93729B67E22001FEA52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D21FF93929B67E22001FEA52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D21FF94029B67ED6001FEA52 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Model.swift; path = SaveToFile/Model.swift; sourceTree = SOURCE_ROOT; };
+		D21FF94029B67ED6001FEA52 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Contact.swift; path = SaveToFile/Contact.swift; sourceTree = SOURCE_ROOT; };
 		D21FF94229B67F88001FEA52 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		D21FF94529B68F67001FEA52 /* AddContactTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactTableViewController.swift; sourceTree = "<group>"; };
+		D22489F029B6A80C006FFE78 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +64,8 @@
 			children = (
 				D21FF92B29B67E22001FEA52 /* AppDelegate.swift */,
 				D21FF92D29B67E22001FEA52 /* SceneDelegate.swift */,
-				D21FF94029B67ED6001FEA52 /* Model.swift */,
+				D22489F329B6A823006FFE78 /* Services */,
+				D22489EF29B6A7A2006FFE78 /* Models */,
 				D21FF94429B67FA0001FEA52 /* ViewControllers */,
 				D21FF93F29B67EA3001FEA52 /* StoryBoards */,
 				D21FF93429B67E22001FEA52 /* Assets.xcassets */,
@@ -87,6 +90,22 @@
 				D21FF94529B68F67001FEA52 /* AddContactTableViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D22489EF29B6A7A2006FFE78 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D21FF94029B67ED6001FEA52 /* Contact.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D22489F329B6A823006FFE78 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D22489F029B6A80C006FFE78 /* StorageManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,9 +179,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D21FF94129B67ED6001FEA52 /* Model.swift in Sources */,
+				D21FF94129B67ED6001FEA52 /* Contact.swift in Sources */,
 				D21FF92C29B67E22001FEA52 /* AppDelegate.swift in Sources */,
 				D21FF92E29B67E22001FEA52 /* SceneDelegate.swift in Sources */,
+				D22489F129B6A80C006FFE78 /* StorageManager.swift in Sources */,
 				D21FF94329B67F88001FEA52 /* TableViewController.swift in Sources */,
 				D21FF94629B68F67001FEA52 /* AddContactTableViewController.swift in Sources */,
 			);

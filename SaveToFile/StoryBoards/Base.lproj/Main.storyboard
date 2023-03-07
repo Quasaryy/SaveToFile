@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Contact List-->
         <scene sceneID="VJl-GY-hJZ">
             <objects>
                 <tableViewController id="MWk-fB-9fk" customClass="TableViewController" customModule="SaveToFile" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,7 +31,7 @@
                             <outlet property="delegate" destination="MWk-fB-9fk" id="GWh-Si-FbH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="epP-8o-Wir">
+                    <navigationItem key="navigationItem" title="Contact List" id="epP-8o-Wir">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gkS-mu-oSK">
                             <connections>
                                 <segue destination="PQV-3C-ydU" kind="presentation" id="N3E-xl-DnG"/>
@@ -54,7 +54,7 @@
                         <sections>
                             <tableViewSection id="fNY-wq-ueK">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="45" id="Bti-yx-q9Q">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="45" id="Bti-yx-q9Q">
                                         <rect key="frame" x="0.0" y="18" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bti-yx-q9Q" id="f7k-9k-g4H">
@@ -65,6 +65,9 @@
                                                     <rect key="frame" x="135" y="5" width="215" height="35"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldsChanged:" destination="k1L-4i-9TG" eventType="editingChanged" id="ADG-KF-xme"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PE5-sa-Kjs">
                                                     <rect key="frame" x="25" y="12" width="80" height="21"/>
@@ -83,7 +86,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="45" id="Pxm-YS-EIp">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" rowHeight="45" id="Pxm-YS-EIp">
                                         <rect key="frame" x="0.0" y="63" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pxm-YS-EIp" id="B0q-MQ-q66">
@@ -94,6 +97,9 @@
                                                     <rect key="frame" x="134" y="5" width="216" height="35"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldsChanged:" destination="k1L-4i-9TG" eventType="editingChanged" id="Wxc-fZ-5cv"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dna-fZ-wpF">
                                                     <rect key="frame" x="25" y="12" width="79" height="21"/>
@@ -126,8 +132,17 @@
                                 <segue destination="YQT-Wm-Krq" kind="unwind" unwindAction="unwindSegueFor:" id="df6-57-6eD"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="DyF-lg-zg4"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="DyF-lg-zg4">
+                            <connections>
+                                <action selector="saveBarButtonTapped:" destination="k1L-4i-9TG" id="YWJ-AT-ke5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="firstNameTF" destination="QgD-C3-9Le" id="OyS-08-ibl"/>
+                        <outlet property="lastNameTF" destination="jWR-mG-Xoi" id="wrQ-DK-mY8"/>
+                        <outlet property="saveBarButton" destination="DyF-lg-zg4" id="mGd-1b-b98"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xpH-gC-60h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="YQT-Wm-Krq" userLabel="Exit" sceneMemberID="exit"/>
@@ -139,8 +154,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ced-wa-BAP" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XdM-yd-bBq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="XdM-yd-bBq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

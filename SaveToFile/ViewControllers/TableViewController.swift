@@ -7,17 +7,17 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class TableViewController: UITableViewController, AddContactTableViewControllerDelegate {
     
-    var contacts: [Contact] = []
+    var contacts: [Contact] = StorageManager.shared.readFromPlist()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
     }
 
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contacts.count
     }
@@ -33,15 +33,28 @@ class TableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let navigationController = segue.destination as? UINavigationController
+        let AddContactVC = navigationController?.topViewController as! AddContactTableViewController
+        AddContactVC.delegate = self
     }
     
     @IBAction func unwindSegue(for unwindSegue: UIStoryboardSegue) {
         
+    }
+    
+}
+
+// MARK: Methods
+extension TableViewController {
+    func save(firstName: String, lastName: String) {
+        contacts.append(Contact(firstName: firstName, lastName: lastName))
+        StorageManager.shared.saveToPlist(model: contacts)
+        tableView.reloadData()
     }
 }
