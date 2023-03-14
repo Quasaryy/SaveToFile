@@ -37,7 +37,10 @@ class AddContactTableViewController: UITableViewController {
     }
     
     @IBAction func textFieldsChanged(_ sender: UITextField) {
-        if !lastNameTF.text!.isEmpty && !firstNameTF.text!.isEmpty {
+        let lastName = lastNameTF.text ?? ""
+        let firstName = firstNameTF.text ?? ""
+        
+        if !lastName.isEmpty && !firstName.isEmpty {
             saveBarButton.isEnabled = true
         } else {
             saveBarButton.isEnabled = false
