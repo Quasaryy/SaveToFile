@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: Delegate
 protocol AddContactTableViewControllerDelegate: AnyObject {
-    func save(firstName: String, lastName: String) -> Void
+    func save(firstName: String, lastName: String)
 }
 
 class AddContactTableViewController: UITableViewController {
